@@ -30,7 +30,7 @@ df2 = (df
       .withColumn("black_market_activity_level", F.col("Black_Market_Activity_Level").cast("double"))
       .withColumn("primary_black_market_goods", F.col("Primary_Black_Market_Goods"))
       .withColumn("currency_black_market_rate_gap_pct", F.col("Currency_Black_Market_Rate_Gap_%").cast("double"))
-      .select("name", "type", "region", "start_year", "end_year", "primary_country", "most_affected_sector", "cost_of_war_usd","black_market_activity_level", "currency_black_market_rate_gap_pct", "id"))
+      .select("name", "type", "region", "start_year", "end_year", "primary_country", "most_affected_sector", "cost_of_war_usd","black_market_activity_level", "currency_black_market_rate_gap_pct", "primary_black_market_goods" , "id"))
 
 today=date.today()
 df3= (
