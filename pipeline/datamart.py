@@ -26,6 +26,7 @@ humanitarian_data = humanitarian_data.withColumn("rank",F.rank().over(window_hum
     humanitarian_data.write
                      .mode("overwrite")
                      .format("parquet")
+                     .option("path", "hdfs://namenode:9000/data/gold/gold_output_humanitarian")
                      .saveAsTable("default.gold_output_humanitarian")
 )
 
@@ -50,6 +51,7 @@ government_data = government_data.withColumn("rank", F.rank().over(window_govern
     government_data.write
                      .mode("overwrite")
                      .format("parquet")
+                     .option("path", "hdfs://namenode:9000/data/gold/gold_output_government")
                      .saveAsTable("default.gold_output_government")
 )
 
@@ -76,5 +78,6 @@ finance_data=finance_data.withColumn("rank",F.rank().over(window_finance))
     finance_data.write
                      .mode("overwrite")
                      .format("parquet")
+                     .option("path", "hdfs://namenode:9000/data/gold/gold_output_finance") 
                      .saveAsTable("default.gold_output_finance")
 )
