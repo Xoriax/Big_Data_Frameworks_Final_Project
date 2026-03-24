@@ -2,7 +2,32 @@ from datetime import date
 from pyspark.sql import SparkSession, functions as F
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType, LongType
 import re
+import sys
 import time
+import os
+
+class TeeWriter:
+    def __init__(self, *streams):
+        self.streams = streams
+    def write(self, data):
+        for s in self.streams:
+            try:
+                s.write(data)
+                s.flush()
+            except Exception:
+                pass
+    def flush(self):
+        for s in self.streams:
+            try:
+                s.flush()
+            except Exception:
+                pass
+
+if not os.path.exists("/opt/logs"):
+    os.makedirs("/opt/logs")
+_log_file = open("/opt/logs/logs.feeder.txt", "w")
+sys.stdout = TeeWriter(sys.__stdout__, _log_file)
+sys.stderr = TeeWriter(sys.__stderr__, _log_file)
 
 spark = (
     SparkSession.builder
