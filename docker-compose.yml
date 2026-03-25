@@ -146,9 +146,21 @@ services:
     container_name: presto-coordinator
     ports:
       - "8089:8089"
- 
+
+  gold-api:
+    build: ./api
+    container_name: gold-api
+    depends_on:
+      - namenode
+    ports:
+      - "5000:5000"
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - API_TOKEN=${API_TOKEN}
+    env_file:
+      - ./.env
+
 volumes:
   hadoop_namenode:
   hadoop_datanode:
   hadoop_historyserver:
-

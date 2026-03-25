@@ -38,7 +38,7 @@ economics_curated = spark.table("default.economics_curated")
 print("[datamart] war_curated : {} lignes".format(war_curated.count()))
 print("[datamart] economics_curated : {} lignes".format(economics_curated.count()))
 
-economics_humanitarian = spark.sql("SELECT id, status, (during_war_poverty_rate_pct-prewar_poverty_rate_pct) AS poverty_change_pct, extreme_poverty_rate_pct, food_insecurity_rate_pct, households_fallen_into_poverty_estimate  FROM economics_curated where status = 'OnGoing'")
+economics_humanitarian = spark.sql("SELECT id, status, (during_war_poverty_rate_pct-prewar_poverty_rate_pct) AS poverty_change_pct, extreme_poverty_rate_pct, food_insecurity_rate_pct, households_fallen_into_poverty_estimate  FROM economics_curated where status = 'Ongoing'")
 war_humanitarian = spark.sql("SELECT id, name AS name_of_war, type AS type_of_war, start_year, primary_country FROM war_curated")
 
 humanitarian_data = war_humanitarian.join(economics_humanitarian,on="id",how="inner")
@@ -59,7 +59,7 @@ print("[datamart] humanitarian_data : {} lignes".format(humanitarian_data.count(
 )
 print("[datamart] gold_output_humanitarian ecrite")
 
-economics_government = spark.sql("SELECT id, status, (during_war_unemployment_pct-prewar_unemployment_pct) AS unemployment_change_pct, youth_unemployment_change_pct, gdp_change_pct, inflation_rate_change_pct, currency_devaluation_pct FROM economics_curated where status = 'OnGoing'")
+economics_government = spark.sql("SELECT id, status, (during_war_unemployment_pct-prewar_unemployment_pct) AS unemployment_change_pct, youth_unemployment_change_pct, gdp_change_pct, inflation_rate_change_pct, currency_devaluation_pct FROM economics_curated where status = 'Ongoing'")
 war_government = spark.sql("SELECT id, name AS name_of_war, type AS type_of_war, start_year, primary_country, most_affected_sector, currency_black_market_rate_gap_pct FROM war_curated")
 
 government_data = war_government.join(economics_government,on="id",how="inner")
@@ -86,7 +86,7 @@ print("[datamart] government_data : {} lignes".format(government_data.count()))
 )
 print("[datamart] gold_output_government ecrite")
 
-economics_finance = spark.sql("SELECT id, status, (during_war_unemployment_pct-prewar_unemployment_pct) AS unemployment_change_pct, youth_unemployment_change_pct, gdp_change_pct, inflation_rate_change_pct, currency_devaluation_pct FROM economics_curated where status = 'OnGoing'")
+economics_finance = spark.sql("SELECT id, status, (during_war_unemployment_pct-prewar_unemployment_pct) AS unemployment_change_pct, youth_unemployment_change_pct, gdp_change_pct, inflation_rate_change_pct, currency_devaluation_pct FROM economics_curated where status = 'Ongoing'")
 war_finance = spark.sql("SELECT id, name AS name_of_war, type AS type_of_war, start_year, primary_country, most_affected_sector, black_market_activity_level, currency_black_market_rate_gap_pct , primary_black_market_goods FROM war_curated")
 
 finance_data = war_finance.join(economics_finance,on="id",how="inner")

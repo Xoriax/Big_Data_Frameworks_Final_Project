@@ -43,6 +43,9 @@ spark-warehouse/
 checkpoint/
 .cache/
 
+# Secrets
+.env
+
 # Data files (uncomment if needed)
 # *.csv
 # *.json
