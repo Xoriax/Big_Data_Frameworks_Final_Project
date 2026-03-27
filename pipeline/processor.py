@@ -50,7 +50,7 @@ df2 = (df
     .withColumn("primary_country", F.col("Primary_Country"))
     .withColumn("most_affected_sector", F.col("Most_Affected_Sector"))
     .withColumn("cost_of_war_usd", F.col("Cost_of_War_USD").cast("double"))
-    .withColumn("black_market_activity_level", F.col("Black_Market_Activity_Level").cast("double"))
+    .withColumn("black_market_activity_level", F.col("Black_Market_Activity_Level"))
     .withColumn("primary_black_market_goods", F.col("Primary_Black_Market_Goods"))
     .withColumn("currency_black_market_rate_gap_pct", F.col("Currency_Black_Market_Rate_Gap_%").cast("double"))
     .select("name", "type", "region", "start_year", "end_year", "primary_country", "most_affected_sector", "cost_of_war_usd","black_market_activity_level", "currency_black_market_rate_gap_pct", "primary_black_market_goods" , "id"))
@@ -65,7 +65,7 @@ print("[processor] war : {} lignes transformees".format(df3.count()))
 
 time.sleep(120)
 
-spark.sql("DROP TABLE IF EXISTS default.war_curated")
+df3.cache()
 
 (df3.write
     .mode("overwrite")
@@ -107,7 +107,7 @@ df3_economics= (
 )
 print("[processor] economics : {} lignes transformees".format(df3_economics.count()))
 
-spark.sql("DROP TABLE IF EXISTS default.economics_curated")
+df3_economics.cache()
 
 (df3_economics.write
     .mode("overwrite")
