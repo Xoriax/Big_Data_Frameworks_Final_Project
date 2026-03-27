@@ -30,7 +30,6 @@ venv.bak/
 # Logs
 *.log
 Logs.txt
-logs/
 *.out
 
 # Big Data / Spark

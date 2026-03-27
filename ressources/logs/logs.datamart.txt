@@ -1,0 +1,11 @@
+/spark/python/lib/pyspark.zip/pyspark/context.py:220: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
+[datamart] war_curated : 100000 lignes
+[datamart] economics_curated : 100000 lignes
+[datamart] humanitarian_data : 54478 lignes
+[datamart] gold_output_humanitarian ecrite
+[datamart] government_data : 54478 lignes
+[datamart] gold_output_government ecrite
+[datamart] finance_data : 54478 lignes
+[datamart] gold_output_finance ecrite
+[datamart] pipeline termine
