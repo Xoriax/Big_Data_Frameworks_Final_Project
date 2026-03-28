@@ -1,10 +1,17 @@
-## Objectifs
+## Contexte et objectifs
+Dans un contexte international marqué par la multiplication et la complexification des conflits armés, les acteurs publics et privés font face à une incertitude croissante quant aux impacts géopolitiques sur les économies, les marchés financiers et les situations humanitaires. Les guerres, qu’elles soient localisées ou à portée internationale, entraînent des conséquences multidimensionnelles : instabilité économique, perturbation des chaînes d’approvisionnement, flux migratoires, crises humanitaires et fluctuations des marchés.
+Par ailleurs, les données relatives aux conflits passés et actuels sont souvent dispersées, hétérogènes et difficiles à exploiter efficacement. Cette fragmentation limite la capacité des décideurs à anticiper les risques, à comprendre les dynamiques géopolitiques et à coordonner des actions adaptées.
+Dans ce contexte, la mise en place d’une architecture de données structurée, centralisant et valorisant les données géopolitiques, apparaît comme un levier stratégique pour améliorer la prise de décision.
+Ainsi notre étude peut d'adresser à différents corps de métier, comme les gouvernements, les entreprises, les institutions financières, les orgnaisations humanitaires et les associations.
 
-L'objectif du projet est de mettre en place une architecture de données qui permettrait d'utiliser des données géopolitiques, et de les structurer à des fins d'analyses économiques, humanitaires et financières.
+---
 
-Cette étude permettrait d'anticiper les potentielles conséquences des guerres dans le monde afin de prendre des décisions et de coordonner les actions en prenant en compte les anciens conflits et ceux actuels.
+## Problématique business :
+Comment concevoir et déployer une architecture de données capable de collecter, structurer et exploiter des données géopolitiques afin de :
+Anticiper les impacts économiques, financiers et humanitaires des conflits armés
+Améliorer la prise de décision des différents acteurs (gouvernements, institutions financières, entreprises, organisations humanitaires)
+Faciliter la coordination des actions en s’appuyant à la fois sur l’analyse des conflits passés et le suivi des crises actuelles ?
 
-Ce projet peut s'adresser à plusieurs instances comme le gouvernement, des institutions financières, des organisations humanitaires ou encore à des citoyens désireux de comprendre l'histoire.
 
 ---
 
@@ -148,3 +155,10 @@ Les données sources proviennent de Kaggle :
 - **economics.sql** — indicateurs économiques liés aux guerres (PIB, chômage, pauvreté, marché noir...)
 
 Lien Kaggle : https://www.kaggle.com/datasets/likithagedipudi/war-economic-and-livelihood-impact-dataset/data
+
+---
+
+## Analyse business : 
+La mise en place d’une architecture de données géopolitiques permet de centraliser et croiser des indicateurs économiques, financiers et humanitaires issus de conflits passés et en cours afin de produire des analyses fiables et comparables. Les visualisations montrent qu’il est possible d’identifier rapidement les pays les plus vulnérables (via un score de crise combinant inflation, chômage, PIB et dévaluation), de repérer les secteurs économiques les plus exposés ainsi que l’intensité des marchés parallèles (évaluation du risque d’investissement), et d’évaluer l’ampleur des impacts humanitaires comme la pauvreté ou l’insécurité alimentaire.
+Une telle architecture permet ainsi d’anticiper les risques, d’orienter les investissements ou les politiques publiques, d’organiser et prioriser les actions humanitaires. Elle facilite également la coordination entre acteurs en fournissant une vision commune, structurée et actualisée des crises, améliorant ainsi la rapidité et la pertinence des décisions.
+
